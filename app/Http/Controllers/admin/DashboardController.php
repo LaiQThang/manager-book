@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+// use Spatie\ResponseCache\Facades\ResponseCache;
 
 class DashboardController extends Controller
 {
@@ -18,6 +19,7 @@ class DashboardController extends Controller
     }
 
     public function logout(){
+        // ResponseCache::clear();
         session_destroy();
         return redirect(route('auth.index'));
     }

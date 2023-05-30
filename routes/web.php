@@ -21,7 +21,7 @@ Route::middleware('authentic')->prefix('admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
     Route::get('/logout', [DashboardController::class, 'logout'])->name('admin.logout');
 
-    Route::prefix('users')->group(function(){
+    Route::middleware('authentic')->prefix('users')->group(function(){
         Route::get('/', [UserController::class, 'index'])->name('users.index');
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/update', [UserController::class, 'update'])->name('users.update');
