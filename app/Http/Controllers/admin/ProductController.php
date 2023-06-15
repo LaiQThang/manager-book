@@ -169,7 +169,7 @@ class ProductController extends Controller
                     $fail('Bạn chưa chọn danh mục sản phẩm!');
                 }
             }],
-            'product_size' => 'required',
+            // 'product_size' => 'required',
             'product_quantity_0' => 'required|integer',
             'product_quantity_1' => 'required|integer',
             'product_quantity_2' => 'required|integer',
@@ -186,7 +186,7 @@ class ProductController extends Controller
             'product_price.integer' => 'Giá sản phẩm phải là số!',
             'classify_id.integer' => 'Danh mục chọn không đúng!',
             'classify_id.required' => 'Bạn chưa chọn danh mục sản phẩm!',
-            'product_size.required' => 'Bạn chưa nhập size sản phẩm!',
+            // 'product_size.required' => 'Bạn chưa nhập size sản phẩm!',
             'product_quantity_0.required' => 'Bạn chưa nhập số lượng sản phẩm!!',
             'product_quantity_0.integer' => 'Số lượng phải là số nguyên!',
             'product_quantity_1.required' => 'Bạn chưa nhập số lượng sản phẩm!!',

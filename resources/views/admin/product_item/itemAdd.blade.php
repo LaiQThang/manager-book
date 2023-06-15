@@ -86,7 +86,7 @@
             
                         <div class="mb-3 col-12">
                             <label for="product_des" class="form-label">Mô tả:</label>
-                            <textarea type="text" class="form-control" style="height: 200px;" id="product_des" name="product_des">{{old('product_des')}}</textarea>
+                            <textarea type="text" class="form-control" style="height: 200px;" id="noidung" name="product_des">{{old('product_des')}}</textarea>
                             @error('product_des')
                                 <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                             @enderror

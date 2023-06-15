@@ -25,7 +25,7 @@ class UserResource extends JsonResource
             'address' => $this->address,
             'phone' => $this->phone,
             'permission' => $this->permission,
-            'image' => URL::asset('storage/'.$this->image)
+            'image' => $this->image ? URL::asset('storage/'.$this->image) : null
             // 'data' => $this->collection,
             // 'links' => [
             //     'self' => 'link-value',

@@ -62,7 +62,7 @@
     
                 <div class="mb-3 col-12">
                     <label for="category_des" class="form-label">Mô tả:</label>
-                    <textarea type="text" class="form-control" style="height: 200px;" id="category_des" name="category_des" value="{{old('category_des')}}"></textarea>
+                    <textarea type="text" class="form-control" style="height: 200px;" id="noidung1" name="category_des" value="{{old('category_des')}}"></textarea>
                     @error('category_des')
                         <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                     @enderror
@@ -85,7 +85,7 @@
     
                 <div class="mb-3 col-12">
                     <label for="category_des_cre" class="form-label">Mô tả:</label>
-                    <textarea type="text" class="form-control" style="height: 200px;" id="category_des_cre" name="category_des_cre" value="{{old('category_des_cre')}}"></textarea>
+                    <textarea type="text" class="form-control" style="height: 200px;" id="noidung2" name="category_des_cre" value="{{old('category_des_cre')}}"></textarea>
                     @error('category_des_cre')
                         <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                     @enderror

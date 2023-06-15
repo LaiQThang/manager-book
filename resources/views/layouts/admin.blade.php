@@ -349,6 +349,13 @@
       <script src="{{URL::asset('assets/dist/js/demo.js')}}"></script>
 
       <script src="{{URL::asset('assets/js/event.js')}}"></script>
+
+      <script src="{{URL::asset('assets/ckeditor/ckeditor.js')}}"></script>
+      <script type="text/javascript">
+          CKEDITOR.replace('noidung');
+          CKEDITOR.replace('noidung1');
+          CKEDITOR.replace('noidung2');
+      </script>
       
 </body>
 

@@ -1,4 +1,5 @@
 
+
 @extends('layouts/admin')
 
 @section('title')
@@ -75,8 +76,9 @@
                             <label for="classify_id" class="form-label">Danh mục:</label>
                             <select class="form-control" name="classify_id">
                                 <option value="0">Không</option>
+                               
                                 @foreach ($classifies as $classify)
-                                    <option value="{{$classify->classify_id}}" {{$classify->classify_id == $product->product_id ? 'selected' : false}}>{{$classify->classify_name}}</option>
+                                    <option value="{{$classify->classify_id}}" {{$classify->classify_id == $product->classify_id ? 'selected' : false}}>{{$classify->classify_name}}</option>
                                 @endforeach
                             </select>
                             @error('classify_id')
@@ -86,7 +88,7 @@
             
                         <div class="mb-3 col-12">
                             <label for="product_des" class="form-label">Mô tả:</label>
-                            <textarea type="text" class="form-control" style="height: 200px;" id="product_des" name="product_des" >{{$product->product_des}}</textarea>
+                            <textarea type="text" class="form-control" style="height: 200px;" id="noidung" name="product_des" >{{$product->product_des}}</textarea>
                             @error('product_des')
                                 <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                             @enderror
