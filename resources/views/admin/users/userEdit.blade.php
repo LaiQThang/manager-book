@@ -74,6 +74,7 @@
                     <label for="upload_file" class="form-label">Avatar</label>
                     <br>
                     <input type="file" accept="image/*"  id="upload_file" name="image" >
+                    <img src="{{URL::asset('storage/'.$user->image)}}" alt="" style="width:100px; heigh:auto;">
                     @error('image')
                         <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                     @enderror

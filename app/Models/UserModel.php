@@ -24,6 +24,9 @@ class UserModel extends Authenticatable
         'email',
         'password',
         'permission',
+        'address',
+        'phone',
+        'image'
     ];
 
     protected $table = 'users';
@@ -74,6 +77,17 @@ class UserModel extends Authenticatable
         else{
             return false;
         }
+    }
+
+    public function getPermissionUser($id){
+        $permission = DB::table($this->table)
+        ->where($this->table.'.id', '=', $id)
+        ->join('permission_items', $this->table.'.permission', '=', 'permission_items.permission_id')
+        ->join('permission_lists', 'permission_items.permission_list_id', '=', 'permission_lists.id')
+        ->select('permission_lists.permission_url')
+        ->get();
+
+        return $permission;
     }
 
     public function updateUser($dataUpdate, $id){

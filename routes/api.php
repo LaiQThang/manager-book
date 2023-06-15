@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Api\ApiUserController;
+use App\Http\Controllers\apiUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return 'ok';
+//     return $request->user();
+// });
+Route::prefix('users')->group(function(){
+      Route::apiResource('/user', ApiUserController::class);
 });

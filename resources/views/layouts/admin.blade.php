@@ -1,10 +1,12 @@
 @php
     use App\Models\UserModel;
 
-    $user = new UserModel();
-
-    $id = $_SESSION['VERSION_USER'];
-    $data = $user->getUser($id);
+    
+    $data = Cache::remember('dataUser', 60, function () {
+        $id = $_SESSION['VERSION_USER'];
+        $user = new UserModel();
+          return $user->getUser($id);
+    }); 
 @endphp
 
 <!DOCTYPE html>
@@ -202,13 +204,19 @@
                 <li class="nav-item">
                   <a href="{{route('users.index')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>List users</p>
+                    <p>Danh sách</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('users.add')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add users</p>
+                    <p>Thêm người dùng</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('permission.index')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Phân quyền</p>
                   </a>
                 </li>
               </ul>
@@ -218,7 +226,31 @@
               <a href="#" class="nav-link">
                 <i class="fa-solid fa-book mr-2"></i>
                 <p>
-                  Book
+                  Products
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('category.index')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh mục</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('product.index')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sản phẩm</p>
+                  </a>
+                </li>
+              </ul>
+              
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fa-solid fa-cart-shopping mr-1"></i>
+                <p>
+                  Cart
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -226,18 +258,49 @@
                 <li class="nav-item">
                   <a href="pages/forms/general.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>List books</p>
+                    <p>Danh sách</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/forms/advanced.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add books</p>
+                    <p>Đơn hàng</p>
                   </a>
                 </li>
               </ul>
+              
             </li>
 
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fa-solid fa-display mr-1"></i>
+                <p>
+                  Display
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Slide trang chủ</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Giới thiệu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Nội dung trang chủ</p>
+                  </a>
+                </li>
+              </ul>
+              
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -286,6 +349,7 @@
       <script src="{{URL::asset('assets/dist/js/demo.js')}}"></script>
 
       <script src="{{URL::asset('assets/js/event.js')}}"></script>
+      
 </body>
 
 </html>

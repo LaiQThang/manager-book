@@ -25,6 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         RateLimiter::for('api', function (Request $request) {
+            //Số lần chạy api mỗi phút
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 

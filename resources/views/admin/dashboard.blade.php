@@ -18,4 +18,9 @@
         </div>
       </div>
     </div>
+    <div class="container-flui">
+      @if (session('msg'))
+          <div class="alert alert-warning">{{session('msg')}}</div>
+      @endif
+    </div>
 @endsection

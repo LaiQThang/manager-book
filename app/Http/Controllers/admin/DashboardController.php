@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-// use Spatie\ResponseCache\Facades\ResponseCache;
+// use Spatie\ResponseCache\ResponseCache;
 
 class DashboardController extends Controller
 {
