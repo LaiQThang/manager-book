@@ -9,4 +9,4 @@
 
 ## About Laravel
 
-mySQL: https://drive.google.com/file/d/1PbKr5LrU7oHlOTncADStbFE4sgNqK6YY/view?usp=drive_link
+mySQL: https://drive.google.com/file/d/1Uu5BVqXqywD2O66ODGBSrG9P3cNYy44L/view?usp=sharing
