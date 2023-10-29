@@ -79,7 +79,7 @@ class LoginController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        dd($request->all());
+        // dd($request->all());
 
         $user = $this->user->addUser($dataAdd);
         if(!empty($user)){

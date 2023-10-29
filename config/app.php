@@ -170,7 +170,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        
     ])->toArray(),
 
     /*
@@ -188,6 +187,8 @@ return [
         // 'Example' => App\Facades\Example::class,
 
         'SendMail' => App\Heplers\Function\SendMail::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ])->toArray(),
 
 ];

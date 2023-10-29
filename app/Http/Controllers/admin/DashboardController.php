@@ -12,9 +12,11 @@ class DashboardController extends Controller
 {
     //
     
-    public function index(){
+    public function index(Request $request){
         
+        // dd(request()->ip());
         $title = 'Dashboard';
+        
         return view('admin.dashboard', compact('title'));
     }
 

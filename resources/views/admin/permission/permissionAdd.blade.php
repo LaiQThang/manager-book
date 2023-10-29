@@ -23,7 +23,7 @@
         @if (session('msg'))
             <div class="alert alert-success">{{session('msg')}}</div>
         @endif
-        <form action="{{route('permission.postAdd')}}" method="POST">
+        <form action="{{route('permission.postAdd')}}" method="POST" id="permission_submit">
         <div class="row">
                 <div class="mb-3 col-6">
                     <label for="permission_id" class="form-label">Permission ID</label>
@@ -31,6 +31,8 @@
                     @error('permission_id')
                         <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                     @enderror
+                    <span class="permission_id--err" style="color: red"></span>
+
                 </div>
     
                 <div class="mb-3 col-6">
@@ -39,6 +41,7 @@
                     @error('permission_name')
                         <span class="mt-2 d-block" style="color: red;">{{$message}}</span>
                     @enderror
+                    <span class="permission_name--err" style="color: red"></span>
                 </div>
     
                 @csrf

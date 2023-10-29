@@ -234,14 +234,20 @@ class ProductController extends Controller
                     Product_image::where('product_id', $id)->delete();
                     for($i = 0; $i<=3 ; $i++){
                         $nameImg = 'product_img_'.$i;
-        
+
                         if(!empty($request->$nameImg)){
-                            $imageName = time().'.'.$request->$nameImg->extension();
+                            $imageName = time().$i.'.'.$request->$nameImg->extension();
 
                             Storage::putFileAs('public', $request->$nameImg, $imageName);
 
                             Product_image::create([
                                 'product_img' => $imageName,
+                                'product_id' => $id,
+                            ]);
+                        }
+                        else{
+                            Product_image::create([
+                                'product_img' => null,
                                 'product_id' => $id,
                             ]);
                         }

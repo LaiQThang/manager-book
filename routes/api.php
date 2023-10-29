@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Api\ApiUserController;
+use App\Http\Controllers\Api\AuthController;
+
 use App\Http\Controllers\apiUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +27,17 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('users')->group(function(){
       Route::apiResource('/user', ApiUserController::class);
 });
+
+Route::group([
+      'middleware' => 'api',
+      'prefix' => 'auth'
+  
+  ], function ($router) {
+      Route::post('/login', [AuthController::class, 'login']);
+      Route::post('/register', [AuthController::class, 'register']);
+      Route::post('/logout', [AuthController::class, 'logout']);
+      Route::post('/refresh', [AuthController::class, 'refresh']);
+      Route::get('/user-profile', [AuthController::class, 'userProfile']);
+      Route::post('/change-pass', [AuthController::class, 'changePassWord']);    
+  });
+  

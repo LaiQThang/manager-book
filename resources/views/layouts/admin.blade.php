@@ -30,6 +30,9 @@
   <link rel="stylesheet" href="{{ URL::asset('assets/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ URL::asset('assets/dist/css/adminlte.min.css')}}">
+
+  <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css')}}">
+
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{ URL::asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -310,6 +313,14 @@
 
     <div class="content-wrapper">
         @yield('content')
+    </div>
+
+    <div class="spinner-box">
+      <div class="pulse-container">  
+        <div class="pulse-bubble pulse-bubble-1"></div>
+        <div class="pulse-bubble pulse-bubble-2"></div>
+        <div class="pulse-bubble pulse-bubble-3"></div>
+      </div>
     </div>
 
 

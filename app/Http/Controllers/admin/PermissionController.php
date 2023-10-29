@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Permission;
 use App\Models\Permission_item;
 use App\Models\Permission_list;
+use Error;
 use Illuminate\Http\Request;
 
 class PermissionController extends Controller
@@ -54,7 +55,10 @@ class PermissionController extends Controller
         $result = $this->permission->postAdd($data);
 
         if(!empty($result)){
-            return back()->with('msg', 'Thêm thành công!');
+            return response()->json(['status' => 'success']);
+        }
+        else{
+            return response()->json(['status' => 'err']);
         }
 
         return back()->with('msg', 'Liên kết không tồn tại!');

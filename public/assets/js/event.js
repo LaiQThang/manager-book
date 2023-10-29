@@ -67,3 +67,54 @@ $('#change-img').change(function(){
     let status = !$(this).is(":checked");
     $(".upload_file").attr("disabled", status);
 });
+
+$(document).ready(function(){
+    $('.spinner-box').hide();
+});
+
+$('#permission_submit').on('submit', function(e){
+    e.preventDefault();
+
+    $('.spinner-box').show();
+
+
+    let id = $("#permission_id").val().trim();
+
+    let name = $("#permission_name").val().trim();
+
+    let csrfToken = $(this).find('input[name="_token"]').val();
+
+    let actionUrl = $(this).attr('action');
+
+    $.ajax({
+        url: actionUrl,
+        type: 'POST',
+        data:{
+            permission_id: id,
+            permission_name: name,
+            _token: csrfToken
+        },
+        
+        dataType: 'json',
+        success: function(respon){
+            alert(respon.status);
+            $('.spinner-box').hide();
+
+            $("#permission_id").val("");
+            
+            $("#permission_name").val("");
+        },
+        error: function(err){
+            $('.spinner-box').hide();
+
+            let responJson = err.responseJSON.errors;
+                    if(Object.keys(responJson).length > 0){
+                        for(let key in responJson){
+                            $('.'+key+'--err').text(responJson[key][0]);
+                            console.log(responJson[key][0]);
+                            console.log(key);
+                        }
+                    }
+        }
+    });
+});
